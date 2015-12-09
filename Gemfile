@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'httparty', '~> 0.13.7'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'byebug'
