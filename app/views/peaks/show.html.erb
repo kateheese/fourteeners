@@ -1,0 +1,5 @@
+<h1><%= @peak["attributes"]["peak_name"] %></h1>
+
+<strong>Rank: </strong><p><%= @peak["attributes"]["rank"] %></p>
+<strong>Range: </strong><p><%= link_to @peak["attributes"]["range"], ranges_show_path(@peak["attributes"]["range"]) %></p>
+<strong>Elevation: </strong><p><%= @peak["attributes"]["elevation"] %></p>

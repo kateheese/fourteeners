@@ -1,0 +1,5 @@
+<h1>Colorado Ranges</h1>
+
+<% @ranges.each do |range| %>
+  <p><%= link_to range, ranges_show_path(range) %></p>
+<% end %>

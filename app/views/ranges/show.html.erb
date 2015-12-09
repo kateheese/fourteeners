@@ -1,0 +1,38 @@
+<h1><%= @rangeName %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Peak
+      </th>
+      <th>
+        Rank
+      </th>
+      <th>
+        Range
+      </th>
+      <th>
+        Elevation
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @peaks.each do |peak| %>
+      <tr>
+        <td>
+          <%= link_to peak["attributes"]["peak_name"], peaks_show_path(peak["id"]) %>
+        </td>
+        <td>
+          <%= peak["attributes"]["rank"] %>
+        </td>
+        <td>
+          <%= peak["attributes"]["range"] %>
+        </td>
+        <td>
+          <%= peak["attributes"]["elevation"] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
