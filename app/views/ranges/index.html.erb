@@ -1,5 +1,7 @@
-<h1>Colorado Ranges</h1>
+<div class="container text-center">
+  <h2>Mountain Ranges</h2>
 
-<% @ranges.each do |range| %>
-  <p><%= link_to range, ranges_show_path(range) %></p>
-<% end %>
+  <% @ranges.each do |range| %>
+    <p><%= link_to range, ranges_show_path(range) %></p>
+  <% end %>
+</div>

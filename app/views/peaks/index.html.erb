@@ -1,38 +1,34 @@
-<h1>Colorado 14ers</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        Peak
-      </th>
-      <th>
-        Rank
-      </th>
-      <th>
-        Range
-      </th>
-      <th>
-        Elevation
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @peaks.each do |peak| %>
+<div class="container">
+  <table class="table">
+    <thead>
       <tr>
-        <td>
-          <%= link_to peak["attributes"]["peak_name"], peaks_show_path(peak["id"]) %>
-        </td>
-        <td>
-          <%= peak["attributes"]["rank"] %>
-        </td>
-        <td>
-          <%= link_to peak["attributes"]["range"], ranges_show_path(peak["attributes"]["range"]) %>
-        </td>
-        <td>
-          <%= peak["attributes"]["elevation"] %>
-        </td>
+        <th>Peak</th>
+        <th>Rank</th>
+        <th>Range</th>
+        <th>Elevation</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @peaks.each do |peak| %>
+        <tr>
+          <td>
+            <%= link_to peak["attributes"]["peak_name"], peaks_show_path(peak["id"]) %>
+          </td>
+          <% if peak["attributes"]["rank"] == '0' %>
+            <td>Unranked</td>
+          <% else %>
+            <td>
+              <%= peak["attributes"]["rank"] %>
+            </td>
+          <% end %>
+          <td>
+            <%= link_to peak["attributes"]["range"], ranges_show_path(peak["attributes"]["range"]) %>
+          </td>
+          <td>
+            <%= peak["attributes"]["elevation"] + ' ft' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

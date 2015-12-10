@@ -8,6 +8,5 @@ class RangesController < ApplicationController
     oneRange = Fourteener.new
     @rangeName = params[:range]
     @peaks = oneRange.show_range(params[:range])["data"]
-    puts @peaks
   end
 end

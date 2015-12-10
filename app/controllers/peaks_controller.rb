@@ -9,8 +9,6 @@ class PeaksController < ApplicationController
     @peak = onePeak.show_peak(params[:id])["data"][0]
     lat = @peak["attributes"]["latitude"]
     lon = @peak["attributes"]["longitude"]
-    puts lat
-    puts lon
 
     @hash = Gmaps4rails.build_markers(@peak) do |peak, marker|
       marker.lat lat
