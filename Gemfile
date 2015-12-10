@@ -14,9 +14,11 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
 gem 'httparty', '~> 0.13.7'
 gem 'gmaps4rails'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug'
+  gem 'dotenv-rails'
 end
 
 group :development do

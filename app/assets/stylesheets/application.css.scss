@@ -32,14 +32,19 @@ body {
 }
 
 .navbar-default .navbar-nav > li > a {
-  font-size: 2em;
+  font-size: 25px;
   text-transform: uppercase;
   padding: 20px;
 }
 
+.glyphicon-user {
+  font-size: 18px;
+}
+
 .navbar-default .navbar-brand {
-  font-size: 3em;
+  font-size: 35px;
   padding: 20px;
+  text-transform: uppercase;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -59,12 +64,18 @@ footer {
   background-image: image-url('Sneffels.jpg');
   background-size: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  flex-direction: column;
 }
 
 .welcome h1 {
   font-size: 60px;
+  color: white;
+  margin: auto;
+}
+
+.welcome h3 {
   color: white;
 }
 
