@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
-  def index
+  def leader
+    @users = User.all.sort_by { |k| k["climbs"] }
   end
 end

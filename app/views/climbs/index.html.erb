@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="show-header">Total Climbs:</h3>
+      <h4 class="inline"><%= @climbs.size %></h4>
+    </div>
+    <div class="col-md-6">
+      <h3 class="show-header">Total Elevation:</h3>
+      <h4 class="inline"><%= number_with_delimiter(@total_elevation, :delimiter => ',') %></h4>
+    </div>
+  </div>
+  <h1 class="page-header">My Climbs</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Peak</th>
+        <th>Rank</th>
+        <th>Elevation</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @climbs.each do |climb| %>
+        <tr>
+          <td>
+            <span class="badge-icon"><%= image_tag("badge.png") %></span>
+          </td>
+          <td><%= link_to climb["peak_name"], peaks_show_path(climb["peak_id"]) %></td>
+          <% if climb["rank"] == 0 %>
+            <td>Unranked</td>
+          <% else %>
+            <td><%= climb["rank"] %></td>
+          <% end %>
+          <td><%= number_with_delimiter(climb["elevation"], :delimiter => ',') + ' ft' %></td>
+          <td>
+            <%= button_to "Remove", peaks_show_path(climb), method: :delete, class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

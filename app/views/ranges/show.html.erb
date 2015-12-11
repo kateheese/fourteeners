@@ -13,6 +13,9 @@
           <th>
             Elevation
           </th>
+          <% if current_user %>
+            <th>My Climbs</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -31,8 +34,24 @@
             <td>
               <%= peak["attributes"]["elevation"] + ' ft' %>
             </td>
+              <% if current_user %>
+                <% if current_user.climbs.exists?(:peak_id => peak["id"]) %>
+                  <td class="badge-icon"><%= image_tag("badge.png") %></td>
+                <% else %>
+                  <td>
+                    <%= form_for Climb.new do |f| %>
+                      <%= f.hidden_field :peak_id, :value => peak["id"] %>
+                      <%= f.hidden_field :peak_name, :value => peak["attributes"]["peak_name"] %>
+                      <%= f.hidden_field :rank, :value => peak["attributes"]["rank"] %>
+                      <%= f.hidden_field :elevation, :value => peak["attributes"]["elevation"] %>
+                      <%= f.hidden_field :notes, :value => '' %>
+                      <%= f.submit "Add", class: "btn btn-info" %>
+                    <% end %>
+                  </td>
+                <% end %>
+              <% end %>
+            <% end %>
           </tr>
-        <% end %>
       </tbody>
     </table>
   </div>

@@ -21,4 +21,8 @@ class Fourteener
     newRange = range.split(' ').join('%20')
     Fourteener.get("/peaks/ranges/#{newRange}")
   end
+
+  def comma_insert(elevation)
+    elevation.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,')
+  end
 end

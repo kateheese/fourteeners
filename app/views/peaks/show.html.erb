@@ -3,7 +3,23 @@
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js' type='text/javascript'></script>
 
 <div class="container">
-  <h2><%= @peak["attributes"]["peak_name"] %></h2>
+  <h2 class="show-header"><%= @peak["attributes"]["peak_name"] %></h2>
+  <% if current_user %>
+    <% if current_user.climbs.exists?(:peak_id => @peak["id"]) %>
+      <span class="badge-icon bottom-padding"><%= image_tag("badge.png") %></span>
+    <% else %>
+      <span>
+        <%= form_for Climb.new, :html => {:class => 'inline'} do |f| %>
+          <%= f.hidden_field :peak_id, :value => @peak["id"] %>
+          <%= f.hidden_field :peak_name, :value => @peak["attributes"]["peak_name"] %>
+          <%= f.hidden_field :rank, :value => @peak["attributes"]["rank"] %>
+          <%= f.hidden_field :elevation, :value => @peak["attributes"]["elevation"] %>
+          <%= f.hidden_field :notes, :value => '' %>
+          <%= f.submit "Add", class: "btn btn-info bottom-padding" %>
+        <% end %>
+      </span>
+    <% end %>
+  <% end %>
   <div class="row">
     <div class="col-md-4">
       <div class="table-responsive">
@@ -24,7 +40,11 @@
           </tr>
           <tr>
             <td><h4>Elevation:</h4></td>
-            <td><h5><%= @peak["attributes"]["elevation"] + ' ft' %></h5></td>
+            <td><h5><%= number_with_delimiter(@peak["attributes"]["elevation"], :delimiter => ',') + ' ft' %></h5></td>
+          </tr>
+          <tr>
+          <td><h4>Towns:</h4></td>
+          <td><h5><%= @peak["attributes"]["towns"] %></h5></td>
           </tr>
         </table>
       </div>

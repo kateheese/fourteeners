@@ -22,8 +22,33 @@ body {
   font-size: 14px;
 }
 
+.badge-icon > img {
+  height: 30px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.bottom-padding {
+  margin-bottom: 10px;
+}
+
 .container {
   min-height: 83vh;
+}
+
+footer {
+  height: 60px;
+  background-color: #2A2A2A;
+}
+
+.glyphicon-user {
+  font-size: 18px;
+}
+
+.inline {
+  display: inline;
 }
 
 .navbar {
@@ -37,10 +62,6 @@ body {
   padding: 20px;
 }
 
-.glyphicon-user {
-  font-size: 18px;
-}
-
 .navbar-default .navbar-brand {
   font-size: 35px;
   padding: 20px;
@@ -52,9 +73,9 @@ body {
   color: white;
 }
 
-footer {
-  height: 60px;
-  background-color: #2A2A2A;
+.show-header {
+  display: inline;
+  padding-right: 10px;
 }
 
 .welcome {
